@@ -82,6 +82,7 @@ int main(int argc, char *argv[])
 */
 	switch(argv[2]){
 		case "test":
+			printf("%s", "HAI PERSON");
 			//do stuff
 			break;
 		case "test2":
