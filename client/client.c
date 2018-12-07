@@ -80,12 +80,12 @@ int main(int argc, char *argv[])
     // i.e. your menu etc.
 
 */
-	switch(argv[2]){
-		case "test":
+	switch(argv[1][0]){
+		case 1:
 			printf("%s", "HAI PERSON");
 			//do stuff
 			break;
-		case "test2":
+		case 2:
 			// do more
 			//test some
 			//HI WAIIIIIOI
