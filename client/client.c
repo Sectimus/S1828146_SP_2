@@ -51,10 +51,10 @@ void get_hello(int socket)
     printf("Received: %zu bytes\n\n", k);
 } // end get_hello()
 
-int main(void)
+int main(int argc, char *argv[])
 {
     // *** this code down to the next "// ***" does not need to be changed except the port number
-    int sockfd = 0;
+/*    int sockfd = 0;
     struct sockaddr_in serv_addr;
 
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
@@ -79,9 +79,17 @@ int main(void)
     // your own application code will go here and replace what is below... 
     // i.e. your menu etc.
 
-
+*/
+	switch(argv[2]){
+		case "test":
+			//do stuff
+			break;
+		case "test2":
+			// do more
+			break;
+	}
     // get a string from the server
-    get_hello(sockfd);
+/*    get_hello(sockfd);
 
     // send and receive a changed struct to/from the server
     employee *employee1;		
@@ -106,4 +114,6 @@ int main(void)
     close(sockfd);
 
     exit(EXIT_SUCCESS);
+*/
+	return(0);
 } // end main()
