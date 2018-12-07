@@ -80,17 +80,20 @@ int main(int argc, char *argv[])
     // i.e. your menu etc.
 
 */
-	for(int i = 0; argv[1][i] != '\0'; i++) {
-		switch(argv[1][0]){
-			case 1:
-				printf("%s", "HAI PERSON");
-				//do stuff
-				break;
-			case 2:
-				// do more
-				//test some
-				//HI WAIIIIIOI
-				break;
+	if(argc > 2)
+	{
+		for(int i = 0; argv[1][i] != '\0'; i++) {
+			switch(argv[1][0]){
+				case 1:
+					printf("%s", "HAI PERSON");
+					//do stuff
+					break;
+				case 2:
+					// do more
+					//test some
+					//HI WAIIIIIOI
+					break;
+			}
 		}
 	}
     // get a string from the server
