@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 */
 	if(argc > 2){
 		for(int i = 0; argv[1][i] != '\0'; i++) {
-			print(argv[1][0]);
+			printf("%s", argv[1][0]);
 			switch(argv[1][0]){
 				case 1:
 					printf("%s", "HAI PERSON");
