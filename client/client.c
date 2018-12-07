@@ -80,9 +80,9 @@ int main(int argc, char *argv[])
     // i.e. your menu etc.
 
 */
-	if(argc > 2)
-	{
+	if(argc > 2){
 		for(int i = 0; argv[1][i] != '\0'; i++) {
+			print(argv[1][0]);
 			switch(argv[1][0]){
 				case 1:
 					printf("%s", "HAI PERSON");
@@ -95,6 +95,9 @@ int main(int argc, char *argv[])
 					break;
 			}
 		}
+	}
+	else{ //enter menu switch mode
+		
 	}
     // get a string from the server
 /*    get_hello(sockfd);
