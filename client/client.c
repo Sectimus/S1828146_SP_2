@@ -82,10 +82,10 @@ int main(int argc, char *argv[])
 */
 	if(argc > 2){
 		for(int i = 0; argv[1][i] != '\0'; i++) {
-			printf("%d", argv[1][0]);
+			printf("%d\n", argv[1][0]);
 			switch(argv[1][0]){
 				case 1:
-					printf("%s", "HAI PERSON");
+					printf("%s\n", "HAI PERSON");
 					//do stuff
 					break;
 				case 2:
