@@ -86,6 +86,7 @@ int main(int argc, char *argv[])
 			break;
 		case "test2":
 			// do more
+			//test some
 			break;
 	}
     // get a string from the server
