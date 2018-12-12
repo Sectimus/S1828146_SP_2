@@ -22,7 +22,7 @@ typedef struct {
 } employee;
 
 void get_and_send_employee(int, employee *);
-void send_hello(int);
+void send_SID(int);
 
 // you shouldn't need to change main() in the server except the port number
 int main(void)
@@ -80,7 +80,7 @@ void *client_handler(void *socket_desc)
     //Get the socket descriptor
     int connfd = *(int *) socket_desc;
 
-    send_hello(connfd);
+    send_SID(connfd);
 
     employee *employee1;
     employee1 = (employee *) malloc(sizeof(employee));
@@ -107,14 +107,14 @@ void *client_handler(void *socket_desc)
 }  // end client_handler()
 
 // how to send a string
-void send_hello(int socket)
+void send_SID(int socket)
 {
-    char hello_string[] = "hello SP student";
+    char SID_string[] = "Amelia Magee - S1828146";
 
-    size_t n = strlen(hello_string) + 1;
+    size_t n = strlen(SID_string) + 1;
     writen(socket, (unsigned char *) &n, sizeof(size_t));	
-    writen(socket, (unsigned char *) hello_string, n);	  
-} // end send_hello()
+    writen(socket, (unsigned char *) SID_string, n);	  
+} // end send_SID()
 
 // as before...
 void get_and_send_employee(int socket, employee * e)

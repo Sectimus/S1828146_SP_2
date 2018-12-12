@@ -12,6 +12,7 @@
 #include <errno.h>
 #include <arpa/inet.h>
 #include "rdwrn.h"
+#define MAX_LEN 500
 
 typedef struct {
     int id_number;
@@ -51,10 +52,20 @@ void get_hello(int socket)
     printf("Received: %zu bytes\n\n", k);
 } // end get_hello()
 
-int main(int argc, char *argv[])
+void get_SID(int socket){
+	char SID_string[32];
+    size_t k;
+
+    readn(socket, (unsigned char *) &k, sizeof(size_t));	
+    readn(socket, (unsigned char *) SID_string, k);
+
+    printf("Student ID: %s\n", SID_string);
+    printf("Received: %zu bytes\n\n", k);
+} // end get_SID()
+int main(void)
 {
     // *** this code down to the next "// ***" does not need to be changed except the port number
-/*    int sockfd = 0;
+    int sockfd = 0;
     struct sockaddr_in serv_addr;
 
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
@@ -79,28 +90,49 @@ int main(int argc, char *argv[])
     // your own application code will go here and replace what is below... 
     // i.e. your menu etc.
 
-*/
-	if(argc > 2){
-		for(int i = 0; argv[1][i] != '\0'; i++) {
-			printf("%d\n", argv[1][0]);
-			switch(argv[1][0]){
-				case 1:
-					printf("%s\n", "HAI PERSON");
-					//do stuff
-					break;
-				case 2:
-					// do more
-					//test some
-					//HI WAIIIIIOI
-					break;
-			}
-		}
+	///////
+	const char *options[] = {
+		"Student ID & IP",
+		"5 Random Numbers",
+		"Server Uname information",
+		"List of upload files"
+	};
+	char *in = NULL;
+	
+	char *option = malloc(MAX_LEN);
+	
+	printf("Please choose one of the following options:\n");
+	
+	int i;
+	for(i = 0; i <= 3; i++) {
+        printf("%d) %s\n", i+1, options[i]);
+    }
+	
+	in = fgets(option, 100, stdin);
+	
+	switch(*in){
+		case '1':
+			//DO STUDENT ID
+			get_SID(sockfd);
+			break;
+		case '2':
+			//DO 5 random nums
+			break;
+		case '3':
+			//DO SERVER UNAME
+			break;
+		case '4':
+			//DO LIST UPLOAD FILES
+			break;
+		default:
+			printf("%c is not an option\n", *in);
 	}
-	else{ //enter menu switch mode
-		
-	}
+	
+	///////
+	
+/*
     // get a string from the server
-/*    get_hello(sockfd);
+    get_hello(sockfd);
 
     // send and receive a changed struct to/from the server
     employee *employee1;		
@@ -126,5 +158,5 @@ int main(int argc, char *argv[])
 
     exit(EXIT_SUCCESS);
 */
-	return(0);
+	return 0;
 } // end main()
